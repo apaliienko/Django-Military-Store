@@ -1,0 +1,20 @@
+Django
+Pillow
+
+pywin32
+tzdata
+importlib-metadata==4.13.0
+
+django-allauth
+django-debug-toolbar
+django-environ
+django-extensions
+djangorestframework
+
+stripe
+redis
+celery # or celery -A store worker -l info -P gevent
+django-redis
+gevent
+
+psycopg2-binary
