@@ -13,7 +13,7 @@ from users.models import EmailVerification, User
 class UserLoginView(TitleMixin, LoginView):
     template_name = 'users/login.html'
     form_class = UserLoginForm
-    title = 'Store - Авторизация'
+    title = 'Store - Авторизація'
 
 
 class UserRegistrationView(TitleMixin, SuccessMessageMixin, CreateView):
@@ -21,15 +21,15 @@ class UserRegistrationView(TitleMixin, SuccessMessageMixin, CreateView):
     form_class = UserRegistrationForm
     template_name = 'users/registration.html'
     success_url = reverse_lazy('users:login')
-    success_message = 'Вы успешно зарегистрированы!'
-    title = 'Store - Регистрация'
+    success_message = 'Ви успішно зареєстровані!'
+    title = 'Store - Реєстрація'
 
 
 class UserProfileView(TitleMixin, UpdateView):
     model = User
     form_class = UserProfileForm
     template_name = 'users/profile.html'
-    title = 'Store - Личный кабинет'
+    title = 'Store - Особистий кабінет'
 
     def get_success_url(self):
         return reverse_lazy('users:profile', args=(self.object.id,))
