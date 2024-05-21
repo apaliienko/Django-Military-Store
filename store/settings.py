@@ -124,12 +124,10 @@ INTERNAL_IPS = [
 ]
 
 # Redis
-
 REDIS_HOST = env('REDIS_HOST')
 REDIS_PORT = env('REDIS_PORT')
 
 # Caches
-
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
