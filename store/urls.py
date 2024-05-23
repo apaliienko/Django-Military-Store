@@ -20,11 +20,11 @@ from django.urls import include, path
 from rest_framework.authtoken.views import obtain_auth_token
 
 from orders.views import stripe_webhook_view
-from products.views import IndexView
+from products.views import MainPageView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', IndexView.as_view(), name='index'),
+    path('', MainPageView.as_view(), name='index'),
     path('products/', include('products.urls', namespace='products')),
     path('users/', include('users.urls', namespace='users')),
     path('accounts/', include('allauth.urls')),

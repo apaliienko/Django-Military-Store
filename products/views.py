@@ -7,7 +7,7 @@ from common.views import TitleMixin
 from products.models import Basket, Product, ProductCategory
 
 
-class IndexView(TitleMixin, TemplateView):
+class MainPageView(TitleMixin, TemplateView):
     template_name = 'products/index.html'
     title = 'Store'
 
