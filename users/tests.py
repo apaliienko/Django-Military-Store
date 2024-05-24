@@ -48,4 +48,4 @@ class UserRegistrationViewTestCase(TestCase):
         response = self.client.post(self.path, self.data)
 
         self.assertEqual(response.status_code, HTTPStatus.OK)
-        self.assertContains(response, 'Користувач з таким логіном вже існує.', html=True)
+        self.assertContains(response, 'A user with that username already exists.', html=True)

@@ -6,7 +6,7 @@ from django.urls import reverse
 from products.models import Product, ProductCategory
 
 
-class IndexViewTestCase(TestCase):
+class MainPageViewTestCase(TestCase):
 
     def test_view(self):
         path = reverse('index')
