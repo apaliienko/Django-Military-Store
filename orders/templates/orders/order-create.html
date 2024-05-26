@@ -3,9 +3,9 @@
 
 {% block content %}
     <section>
-        <div class="alert alert-warning text-center" role="alert">
-            Будь-ласка, введіть электронну почту.
-        </div>
+<!--        <div class="alert alert-warning text-center" role="alert">-->
+<!--            Будь-ласка, введіть электронну почту.-->
+<!--        </div>-->
         <div class="container">
             <div class="py-5 text-center">
                 <h1>Оформити замовлення</h1>
@@ -23,12 +23,12 @@
                                     <h6 class="my-0">{{ basket.product.name }}</h6>
                                     <small class="text-muted">{{ basket.quantity }} шт.</small>
                                 </div>
-                                <span class="text-muted">{{ basket.sum|intcomma }} руб.</span>
+                                <span class="text-muted">{{ basket.sum|intcomma }} грн.</span>
                             </li>
                         {% endfor %}
                         <li class="list-group-item d-flex justify-content-between">
                             <span>Сума до сплати</span>
-                            <strong>{{ baskets.total_sum|intcomma }} руб.</strong>
+                            <strong>{{ baskets.total_sum|intcomma }} грн.</strong>
                         </li>
                     </ul>
                 </div>

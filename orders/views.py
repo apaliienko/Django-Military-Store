@@ -1,5 +1,4 @@
 from http import HTTPStatus
-
 import stripe
 from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect
@@ -14,6 +13,7 @@ from common.views import TitleMixin
 from orders.forms import OrderForm
 from orders.models import Order
 from products.models import Basket
+
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 

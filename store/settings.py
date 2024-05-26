@@ -18,22 +18,18 @@ env = environ.Env(
     DEBUG=(bool),
     SECRET_KEY=(str),
     DOMAIN_NAME=(str),
-
     REDIS_HOST=(str),
     REDIS_PORT=(str),
-
     DATABASE_NAME=(str),
     DATABASE_USER=(str),
     DATABASE_PASSWORD=(str),
     DATABASE_HOST=(str),
     DATABASE_PORT=(str),
-
     EMAIL_HOST=(str),
     EMAIL_PORT=(int),
     EMAIL_HOST_USER=(str),
     EMAIL_HOST_PASSWORD=(str),
     EMAIL_USE_TLS=(bool),
-
     STRIPE_PUBLIC_KEY=(str),
     STRIPE_SECRET_KEY=(str),
     STRIPE_WEBHOOK_SECRET=(str),
@@ -123,8 +119,8 @@ INTERNAL_IPS = [
     'localhost',
 ]
 
+# sudo service redis-server start/stop
 
-# Redis
 REDIS_HOST = env('REDIS_HOST')
 REDIS_PORT = env('REDIS_PORT')
 
@@ -134,9 +130,6 @@ CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.redis.RedisCache',
         'LOCATION': f'redis://{REDIS_HOST}:{REDIS_PORT}',
-        # 'OPTIONS': {
-        #     'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-        # }
     }
 }
 
@@ -216,7 +209,6 @@ EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = env('EMAIL_USE_TLS')
 
-
 # OAuth
 
 AUTHENTICATION_BACKENDS = [
@@ -234,12 +226,12 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-# Celery
-#
-# CELERY_BROKER_URL = f'redis://{REDIS_HOST}:{REDIS_PORT}'
-# CELERY_RESULT_BACKEND = f'redis://{REDIS_HOST}:{REDIS_PORT}'
+# celery -A store worker -l info -P gevent
 
-# Stripe
+CELERY_BROKER_URL = f'redis://{REDIS_HOST}:{REDIS_PORT}'
+CELERY_RESULT_BACKEND = f'redis://{REDIS_HOST}:{REDIS_PORT}'
+
+# stripe listen --forward-to 127.0.0.1:8000/webhook/stripe
 
 STRIPE_PUBLIC_KEY = env('STRIPE_PUBLIC_KEY')
 STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')
