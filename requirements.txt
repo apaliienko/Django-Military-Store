@@ -13,3 +13,4 @@ psycopg2-binary==2.9.9
 redis==5.0.4
 stripe==9.6.0
 tzdata==2024.1
+python-dotenv
